@@ -74,8 +74,25 @@ class LinkedList(object):
                 current_node = current_node.next
         return
 
-
-
+    def insert(self,index,data):
+        new_node = Node(data)
+        cur = self.head
+        pre = self.head
+        number = 0
+        while cur:
+            if index >= self.length() or index < 0:
+                print('Error')
+                return False
+            else:
+                if number == index:
+                    pre.next = new_node
+                    new_node.next = cur
+                    print('Inserted data {} at node {}'.format(data, index))
+                    return True
+                else:
+                    number += 1
+                    pre = cur
+                    cur = cur.next
     
             
 l = LinkedList()
@@ -93,4 +110,6 @@ l.get(2)
 l.get(1)
 l.get(2)
 l.get(0)
+l.insert(2,9)
+l.display
 
